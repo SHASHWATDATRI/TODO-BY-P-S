@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1><i class="fas fa-check-circle"></i> Todo App</h1>
+                    <p>Organize your tasks efficiently</p>
+                </div>
+                <div class="theme-toggles">
+                    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="anime-toggle" id="anime-toggle" title="Toggle anime mode">
+                        <i class="fas fa-star"></i>
+                    </button>
+                    <button class="image-toggle" id="image-toggle" title="Set custom image theme">
+                        <i class="fas fa-image"></i>
+                    </button>
+                    <input type="file" id="image-upload" accept="image/*" style="display: none;">
+                </div>
+            </div>
+        </header>
+
+        <div class="todo-input-container">
+            <form id="todo-form" class="todo-form">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="name-input" 
+                        class="name-input" 
+                        placeholder="Your name (optional)"
+                        maxlength="30"
+                        title="Enter your name for this task"
+                    >
+                    <input 
+                        type="text" 
+                        id="todo-input" 
+                        class="todo-input" 
+                        placeholder="What needs to be done?"
+                        maxlength="100"
+                    >
+                    <input 
+                        type="datetime-local" 
+                        id="deadline-input" 
+                        class="deadline-input" 
+                        title="Set deadline (optional)"
+                    >
+                </div>
+                <button type="submit" class="add-btn">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </form>
+        </div>
+
+        <div class="todo-stats">
+            <div class="stat-item">
+                <span class="stat-number" id="total-todos">0</span>
+                <span class="stat-label">Total</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="completed-todos">0</span>
+                <span class="stat-label">Completed</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="pending-todos">0</span>
+                <span class="stat-label">Pending</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="overdue-todos">0</span>
+                <span class="stat-label">Overdue</span>
+            </div>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <div class="todo-list-container">
+            <ul id="todo-list" class="todo-list">
+                <!-- Todo items will be dynamically added here -->
+            </ul>
+        </div>
+
+        <div class="todo-actions" id="todo-actions" style="display: none;">
+            <button class="clear-completed-btn" id="clear-completed">
+                Clear Completed
+            </button>
+            <button class="clear-all-btn" id="clear-all">
+                Clear All
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
